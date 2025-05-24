@@ -8,15 +8,6 @@ import com.example.newsfeed.domain.model.NewsArticle
 import com.example.newsfeed.domain.repository.NewsRepository
 import javax.inject.Inject
 
-/**
- * Implementation of [NewsRepository] responsible for fetching and caching news articles.
- *
- * Retrieves news articles from the remote API and stores them in a local Room database.
- * Falls back to local cache if the network request fails.
- *
- * @param api The Retrofit API service to fetch news data.
- * @param dao The Room DAO for local database access.
- */
 class NewsRepositoryImpl @Inject constructor(
     private val api: NewsApiService,
     private val dao: NewsDao

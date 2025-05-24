@@ -16,14 +16,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
-/**
- * Dagger Hilt module providing application-wide dependencies.
- *
- * Provides:
- * - [NewsApiService] for making API calls to the news API.
- * - [NewsDatabase] and [NewsDao] for local Room DB access.
- * - [NewsRepository] implementation that handles data fetching and caching.
- */
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {

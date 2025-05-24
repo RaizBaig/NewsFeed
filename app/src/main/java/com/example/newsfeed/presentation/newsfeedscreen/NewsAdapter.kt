@@ -1,4 +1,5 @@
-import android.graphics.BitmapFactory
+package com.example.newsfeed.presentation.newsfeedscreen
+
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView

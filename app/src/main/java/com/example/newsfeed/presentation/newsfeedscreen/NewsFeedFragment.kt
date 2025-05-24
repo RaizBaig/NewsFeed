@@ -1,6 +1,5 @@
 package com.example.newsfeed.presentation.newsfeedscreen
 
-import NewsAdapter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
