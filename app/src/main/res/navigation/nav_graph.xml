@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/newsFeedFragment">
+
+    <fragment
+        android:id="@+id/newsFeedFragment"
+        android:name="com.example.newsfeed.presentation.NewsFeedScreen.NewsFeedFragment"
+        tools:layout="@layout/fragment_news_feed">
+        <action
+            android:id="@+id/action_newsFeedFragment_to_newsDetailsFragment"
+            app:destination="@id/newsDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newsDetailsFragment"
+        android:name="com.example.newsfeed.presentation.newsdetail.NewsDetailFragment"
+        android:label="fragment_news_details"
+        tools:layout="@layout/fragment_news_details">
+        <argument
+            android:name="article"
+            app:argType="com.example.newsfeed.domain.model.NewsArticle" />
+    </fragment>
+</navigation>
