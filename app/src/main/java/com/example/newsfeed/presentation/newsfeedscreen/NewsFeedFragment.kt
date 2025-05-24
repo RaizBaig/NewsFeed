@@ -1,17 +1,17 @@
-package com.example.newsfeed.presentation.NewsFeedScreen
+package com.example.newsfeed.presentation.newsfeedscreen
 
 import NewsAdapter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.newsfeed.R
 import com.example.newsfeed.databinding.FragmentNewsFeedBinding
 import com.example.newsfeed.presentation.viewmodel.NewsListViewModel
 import com.example.newsfeed.util.ResponseHandler
@@ -48,13 +48,16 @@ class NewsFeedFragment : Fragment() {
             viewModel.news.collectLatest { result ->
                 when (result) {
                     is ResponseHandler.Loading -> {
-                        // Show loading (optional)
+                        binding.progress.visibility = View.VISIBLE
                     }
                     is ResponseHandler.Success -> {
+                        binding.progress.visibility = View.GONE
+
                         newsAdapter.updateList(result.data)
                     }
                     is ResponseHandler.Error -> {
-                        // Show error
+                        binding.progress.visibility = View.GONE
+                        Toast.makeText(requireContext(), "Something went wrong" , Toast.LENGTH_SHORT).show()
                     }
                 }
             }

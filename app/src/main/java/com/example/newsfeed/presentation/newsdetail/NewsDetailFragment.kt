@@ -9,6 +9,7 @@ import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.newsfeed.databinding.FragmentNewsDetailsBinding
 import com.example.newsfeed.domain.model.NewsArticle
+import com.example.newsfeed.util.DateTimeHandler
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -28,9 +29,9 @@ class NewsDetailFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        args?.article.let {
+        args.article.let {
+            binding.publishedAt.text  = DateTimeHandler.formatUtcToReadable(args.article.publishedAt)
             binding.article = it
-
             Glide.with(requireContext())
                 .load(it?.imageUrl)
                 .into(binding.imageView)

@@ -27,7 +27,7 @@ class NewsRepositoryImpl @Inject constructor(
             // Fetch from API (you might want to remove `from` param or handle paging with API if available)
             val response = api.getNews(
                 query = query,
-                from = "2025-05-21", // adjust as needed
+                from = "2025-05-24",
                 apiKey = "9efb1ed0b980404f8006c9bbca65ff0b"
             )
 
